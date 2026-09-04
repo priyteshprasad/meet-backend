@@ -8,6 +8,7 @@ import {
   getSession,
   recordChoice,
   getAnswers,
+  isAnswerSubmitted
 } from './db.js'
 import { sendConversationEmail } from './mail.js'
 
@@ -68,6 +69,12 @@ app.post(
   }),
 )
 
+app.get('/api/isRuhiAnswered', 
+  asyncRoute(async (_req, res) => {
+    const isRuhiAnswered = await isAnswerSubmitted();
+    res.json({ isRuhiAnswered: isRuhiAnswered.length > 0 });
+  })
+)
 app.get(
   '/api/sessions/:id',
   asyncRoute(async (req, res) => {

@@ -7,7 +7,7 @@ import { requireSupabaseEnv, supabaseServiceKey, supabaseUrl } from './config.js
 requireSupabaseEnv()
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const flowPath = path.join(__dirname, '..', 'data', 'flow.json')
+const flowPath = path.join(__dirname, '..', 'data', 'flow2.json')
 
 export const supabase = createClient(supabaseUrl, supabaseServiceKey, {
   auth: { persistSession: false, autoRefreshToken: false },
@@ -59,6 +59,17 @@ export async function getSession(id) {
   throwIfError(error)
   return data
 }
+export async function isAnswerSubmitted(){
+  const { data, error } = await supabase.from('submission').select('*').limit(1)
+  throwIfError(error)
+  return data
+}
+export async function markAnswerSubmitted(){
+  const id = crypto.randomUUID()
+  const {data, error} = await supabase.from('submission').insert({id, submitted: true, updated_at: new Date().toISOString()})
+  throwIfError(error)
+  return data
+}
 
 export async function recordChoice({ sessionId, nodeId, optionId, nextNode, inputText, isEnd }) {
   const now = new Date().toISOString()
@@ -80,6 +91,10 @@ export async function recordChoice({ sessionId, nodeId, optionId, nextNode, inpu
     })
     .eq('id', sessionId)
   throwIfError(sessionError)
+
+  if(isEnd){
+    await markAnswerSubmitted()
+  }
 }
 
 export async function getAnswers(sessionId) {

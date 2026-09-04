@@ -34,7 +34,7 @@
       "kind": "message",
       "tone": "warm",
       "ui": { "layout": "letter", "optionsAs": "buttons" },
-      "body": "Ruhi… itna time ho gaya.\n\nI still remember how easy it used to feel — baatein chalti rehti thin, and the day would just slip away. I am not here to convince you of anything big. I only wanted to ask, gently:\n\nWould you like to meet me this Saturday?",
+      "body": "Ruhi… it has been more than 1.5 year, we know each other.\n\nAur itne time mein I have asked you many times to meet you, and you only agreed once! And I have always respected your will (Just as I will time time too). I am not going to ask for very big gesture or having any expectations.\n\nJust a simple genune request..",
       "note": "Jo bhi jawab ho, woh theek hai.",
       "options": [
         {
@@ -57,6 +57,37 @@
           "sublabel": "Not this Saturday",
           "variant": "ghost",
           "next": "no-ok"
+        },
+        {
+          "id": "message2",
+          "label": "Thik h.. aage batao",
+          "sublabel": "Main sun rahi hu",
+          "variant": "ghost",
+          "next": "message3"
+        }
+      ]
+    },
+    "message3": {
+      "id": "message3",
+      "kind": "message",
+      "tone": "warm",
+      "ui": { "layout": "letter", "optionsAs": "stacked" },
+      "body": "Ruhi, no-one knows the future, kal ye time, ye chance ho na ho.. Aakhir zindagi ka kya bharosa. Aur kismat toh kabhi nahi chahati ki hamari baat bhi ho, isslye I rely on efforts than luck.. \n\n and I am ready to put this much efforts just to spend some time with you, it shows how much you are important to me. \n\nIn past you have given 1 year of Relationship to someone who I'm sure didn't deserve it, and I all I want is to spend some time with you.. that it! no expectation",
+      "note": "Kuch bhi chhota ho, milna hi kaafi hai.",
+      "options": [
+        {
+          "id": "pity-yes",
+          "label": "Thik h..",
+          "sublabel": "I will come so see you",
+          "variant": "primary",
+          "next": "accept-yes"
+        },
+        {
+          "id": "pity-no",
+          "label": "Still No",
+          "sublabel": "Main nai aa sakti",
+          "variant": "secondary",
+          "next": "accept-no"
         }
       ]
     },

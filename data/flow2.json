@@ -1,0 +1,405 @@
+{
+    "meta": {
+      "title": "For Ruhi",
+      "from": "A friend who genuinely wants to meet you",
+      "startNode": "start",
+      "schema": {
+        "node": {
+          "id": "unique key in nodes",
+          "kind": "message | end",
+          "tone": "warm | gentle | reassuring | grateful",
+          "body": "main message shown to Ruhi",
+          "note": "optional smaller line under the body",
+          "ui": {
+            "layout": "letter | card",
+            "optionsAs": "buttons | stacked | input",
+            "placeholder": "only for input",
+            "submitLabel": "only for input"
+          },
+          "options": [
+            {
+              "id": "stable option id",
+              "label": "button or choice text",
+              "sublabel": "optional hint under the label",
+              "variant": "primary | secondary | ghost | soft",
+              "next": "id of the next node"
+            }
+          ]
+        }
+      }
+    },
+  
+    "nodes": {
+      "start": {
+        "id": "start",
+        "kind": "message",
+        "tone": "warm",
+        "ui": {
+          "layout": "letter",
+          "optionsAs": "stacked"
+        },
+        "body": "Ruhi… it has been more than 1.5 year, we know each other.\nAur itne time mein I have asked you many times to meet you, and you only agreed once! And I have always respected your will (Just as I will this time too). I am not going to ask for very big gesture or having any expectations.\nJust a simple genuine request.. Mujhe tumse milne ka bahut man hai..",
+        "note": "Jo bhi jawab ho, main uski respect karunga.",
+        "options": [
+          {
+            "id": "yes",
+            "label": "thik h, milte hain",
+            "sublabel": "ab ek pair pe khade ho jaoge toh kya hi karun",
+            "variant": "primary",
+            "next": "meeting-options"
+          },
+          {
+            "id": "maybe",
+            "label": "Not sure, mujhe dar h bahut",
+            "sublabel": "Aap nai samjhoge mere man ki baat",
+            "variant": "secondary",
+            "next": "fear"
+          },
+          {
+            "id": "no",
+            "label": "Nahi",
+            "sublabel": "Milna mujhse nai ho payega",
+            "variant": "ghost",
+            "next": "first-no"
+          }
+        ]
+      },
+  
+      "meeting-options": {
+        "id": "meeting-options",
+        "kind": "message",
+        "tone": "warm",
+        "ui": {
+          "layout": "letter",
+          "optionsAs": "stacked"
+        },
+        "body": "Can't Believe this!! Finally a Yes. \nThankyou, and I promise, you will never feel ki, tumne koi galti ki. \n\nAnd tum jaisa kaho, we can do that.. Jaise tumhe best lage",
+        "note": "Few suggestions jo tumhe bhi acche lagenge..",
+        "options": [
+          {
+            "id": "favourite-place",
+            "label": "Koibhi Tumhari favourite place + favourite snacks",
+            "sublabel": "Aaram se baith k, gi-bhar k daat lena, mai sab sununga",
+            "variant": "primary",
+            "next": "favourite-place"
+          },
+          {
+            "id": "movie",
+            "label": "Movie, if you want to avoid getting seen",
+            "sublabel": "Anyone can sit next to you in a movie… why not me this time?",
+            "variant": "soft",
+            "next": "movie"
+          },
+          {
+            "id": "walk",
+            "label": "Park mein walk",
+            "sublabel": "Simple walk, thodi hawa, thodi baatein",
+            "variant": "soft",
+            "next": "walk"
+          },
+          {
+            "id": "mall",
+            "label": "Treasure Island Mall",
+            "sublabel": "Ghoom lenge, kuch kha lenge, a lot can happen in a mall",
+            "variant": "soft",
+            "next": "other-plan"
+          },
+          {
+            "id": "other-plan",
+            "label": "Main batayungi, vaisa karten h.. thik",
+            "sublabel": "Mai jaisa bolungi, chup chaap manni padegi",
+            "variant": "secondary",
+            "next": "other-activity"
+          },
+          {
+            "id": "nai",
+            "label": "Ab soch rahi hun toh, sahi nai lag raha",
+            "sublabel": "Mujhe nai lagta ki aa payungi",
+            "variant": "ghost",
+            "next": "first-no"
+          }
+        ]
+      },
+  
+      "favourite-place": {
+        "id": "favourite-place",
+        "kind": "message",
+        "tone": "warm",
+        "ui": {
+          "layout": "letter",
+          "optionsAs": "buttons"
+        },
+        "body": "Honestly, meri favourite choice toh yehi hai.\n\nTumhari favourite jagah, tumhare favourite snacks, bas normally baithkar baat kareinge jaisa hamesha karten h. No awkward planning, no pressure.\n\nAur agar tumhe comfortable lage toh main tumhe pick kar lunga. Ya tum cab se aa sakti ho — jo tumhe better lage.",
+        "note": "After all this time I just want to see you, bas..",
+        "options": [
+          {
+            "id": "pick",
+            "label": "Aap pick kar lena",
+            "sublabel": "I'll be comfortable with that",
+            "variant": "primary",
+            "next": "yes-confirm"
+          },
+          {
+            "id": "cab",
+            "label": "Main cab se aa jaungi",
+            "sublabel": "Aap lene mat aana, ",
+            "variant": "secondary",
+            "next": "yes-confirm"
+          },
+          {
+            "id": "location",
+            "label": "Main jagah bataungi",
+            "sublabel": "Let me choose the place",
+            "variant": "soft",
+            "next": "yes-confirm"
+          }
+        ]
+      },
+  
+      "movie": {
+        "id": "movie",
+        "kind": "message",
+        "tone": "gentle",
+        "ui": {
+          "layout": "letter",
+          "optionsAs": "buttons"
+        },
+        "body": "Tumne kahan tha na, 'Kiske saath jayun yaar'.. 😄\n\nTum confirm karo, toh main book karta hun. 😌\n\nAur agar concern ye hai ki koi mujhe dekh lega, toh simple — tum cab se aa jaana, main wahaan mil jaunga. No unnecessary attention.",
+        "note": "its not my first choice, but if you are comfortable, then movie it is.",
+        "options": [
+          {
+            "id": "movie-yes",
+            "label": "Okay, movie karte hain",
+            "sublabel": "But Aap lene aa sakten ho",
+            "variant": "primary",
+            "next": "yes-confirm"
+          },
+          {
+            "id": "cab-movie",
+            "label": "Movie chalten h",
+            "sublabel": "Mall mein milenge direct",
+            "variant": "secondary",
+            "next": "yes-confirm"
+          },
+          {
+            "id": "change-plan",
+            "label": "Movie nahi, kuch simple karte hain",
+            "sublabel": "Maybe something quieter",
+            "variant": "ghost",
+            "next": "meeting-options"
+          }
+        ]
+      },
+  
+      "walk": {
+        "id": "walk",
+        "kind": "message",
+        "tone": "warm",
+        "ui": {
+          "layout": "letter",
+          "optionsAs": "buttons"
+        },
+        "body": "Walk bhi perfect hai.\n\nKoi nearby park, thodi walk, thodi baatein… nothing complicated.\n\nJo option tumhe less stressful lage.",
+        "note": "No fixed activity to do. Bas thoda sa time sath baaten.",
+        "options": [
+          {
+            "id": "walk-yes",
+            "label": "Chalo walk karte hain",
+            "sublabel": "Simple and easy",
+            "variant": "primary",
+            "next": "yes-confirm"
+          },
+          {
+            "id": "other",
+            "label": "Kuch aur karte hain",
+            "sublabel": "I have another idea",
+            "variant": "soft",
+            "next": "other-plan"
+          }
+        ]
+      },
+  
+      "other-plan": {
+        "id": "other-plan",
+        "kind": "message",
+        "tone": "warm",
+        "ui": {
+          "layout": "letter",
+          "optionsAs": "stacked"
+        },
+        "body": "Nearby mall chalein, kuch kha lein, coffee, thoda shopping, ya literally jo tum suggest karo.\n\nMujhe activity se zyada tumhare saath thoda time spend karna hai.",
+        "note": "Tum comfortable ho, bas wahi important hai.",
+        "options": [
+          {
+            "id": "mall-yes",
+            "label": "Haan, kuch karte hain",
+            "sublabel": "vahin decide karenge",
+            "variant": "primary",
+            "next": "yes-confirm"
+          },
+          {
+            "id": "favourite",
+            "label": "Or your favourite something",
+            "sublabel": "Favourite place + snacks + talking",
+            "variant": "soft",
+            "next": "favourite-place"
+          },
+          {
+            "id": "repeat",
+            "label": "Firse aapke suggestions batao",
+            "sublabel": "previous suggestions",
+            "variant": "soft",
+            "next": "meeting-options"
+          }
+        ]
+      },
+      "other-activity": {
+      "id": "other-activity",
+      "kind": "message",
+      "tone": "gentle",
+      "ui": {
+        "layout": "letter",
+        "optionsAs": "input",
+        "placeholder": "Jo dil kare, likh do…",
+        "submitLabel": "Bhej do"
+      },
+      "body": "Jo tumhe sahi lage, woh bata do. Main uske around sochunga — tumhari marzi pehle.",
+      "note": "Khali bhi chhod sakti ho, sirf milna kaafi hai.",
+      "options": [
+        {
+          "id": "submit",
+          "label": "Bhej do",
+          "variant": "primary",
+          "next": "yes-confirm"
+        }
+      ]
+    },
+  
+      "fear": {
+        "id": "fear",
+        "kind": "message",
+        "tone": "reassuring",
+        "ui": {
+          "layout": "letter",
+          "optionsAs": "stacked"
+        },
+        "body": "I understand. Agar dar ye hai ki koi humein saath dekh lega ya unnecessary questions honge, toh we can keep it very simple, quite, and private. I don't want to stress you out. I just want to make it easier for you. \nIske alawa, agar koi baat hai toh please batao.. I will manage things for you. \nBut, please ek baar socho toh",
+        "note": "Agar phir bhi uncomfortable ho, you can still say NO.",
+        "options": [
+          {
+            "id": "cab",
+            "label": "Thik hai chalo, aati hun milne",
+            "sublabel": "but koi taam jhaam nahi hoga",
+            "variant": "primary",
+            "next": "meeting-options"
+          },
+          {
+            "id": "quiet",
+            "label": "Koi quiet jagah choose karte hain",
+            "sublabel": "Let's keep it low-key",
+            "variant": "secondary",
+            "next": "meeting-options"
+          },
+          {
+            "id": "still-no",
+            "label": "Phir bhi comfortable nahi hoon",
+            "sublabel": "Mujhse nai ho payega yaar",
+            "variant": "ghost",
+            "next": "first-no"
+          }
+        ]
+      },
+  
+      "yes-confirm": {
+        "id": "yes-confirm",
+        "kind": "end",
+        "tone": "grateful",
+        "ui": {
+          "layout": "letter",
+          "optionsAs": "buttons"
+        },
+        "body": "Dekhna, tumhe milke accha hi lagega. Aur shayad milne ke baad tum khud sochogi ki tum befizul dar rahi thi.\n\nI won't make it awkward, I won't expect anything from you. Bas genuinely thoda time spend karenge, baat karenge, aur phir apne-apne ghar.\n\nThank you finally han kehne k liye.. ",
+        "note": "Baaki plan hum saath mein decide karten hai. I'll msg you",
+        "options": [
+          {
+            "id": "restart",
+            "label": "Close with confirmation",
+            "variant": "primary",
+            "next": "end"
+          }
+        ]
+      },
+  
+      "first-no": {
+        "id": "first-no",
+        "kind": "message",
+        "tone": "gentle",
+        "ui": {
+          "layout": "letter",
+          "optionsAs": "stacked"
+        },
+        "body": "Okay… I hear you.\n\nBas ek last baar mein tumse ye kehna chahata hun.. Kash mein samaj pata ki tumhe kaise manayun?\nRuhi, no-one knows the future, kal ye time, ye chance ho na ho.. Aakhir zindagi ka kya bharosa. Aur kismat toh kabhi nahi chahati ki hamari baat bhi ho, isslye I rely on efforts than luck.. \n\n and I am ready to put this much efforts just to spend some time with you, it shows how much you are important to me. \n\nIn past you have given 1 year of Relationship to someone who I'm sure didn't deserve it, and I all I want is to spend some time with you.. thats it! no expectation",
+        "note": "I'm asking one last time, not trying to pressure you. ",
+        "options": [
+          {
+            "id": "maybe",
+            "label": "Dar h mujhe bht… but maybe",
+            "sublabel": "I might be able to",
+            "variant": "primary",
+            "next": "meeting-options"
+          },
+          {
+            "id": "one-last-chance",
+            "label": "Theek hai, sirf ek baar mil leti hoon",
+            "sublabel": "Okay, let's meet",
+            "variant": "soft",
+            "next": "yes-confirm"
+          },
+          {
+            "id": "still-no",
+            "label": "Nahi, I really don't want to",
+            "sublabel": "That's my decision",
+            "variant": "ghost",
+            "next": "final-no"
+          }
+        ]
+      },
+  
+      "final-no": {
+        "id": "final-no",
+        "kind": "end",
+        "tone": "grateful",
+        "ui": {
+          "layout": "letter",
+          "optionsAs": "input",
+          "placeholder": "Anything if you want to say",
+          "submitLabel": "Thank you for understanding"
+        },
+        "body": "Theek hai, Ruhi. I understand.\n\nI didn't wanted to giveup before trying my best. But still if your answer is No, then I will respect it.\n\nNo guilt, no anger, no more convincing. Tum comfortable raho, khush ho — that's more important than me getting what I want.\n\nAnd thank you for listening me.",
+        "note": "I won't ask again. I promise.",
+        "options": [
+        {
+          "id": "submit",
+          "label": "Thank you for understanding",
+          "variant": "primary",
+          "next": "end"
+        }
+      ]
+      },
+  
+      "end": {
+        "id": "end",
+        "kind": "end",
+        "tone": "gentle",
+        "ui": {
+          "layout": "letter",
+          "optionsAs": "buttons"
+        },
+        "body": "This is the End of the request, please close the page",
+        "note": "",
+        "options": [
+          
+        ]
+      }
+    }
+  }
