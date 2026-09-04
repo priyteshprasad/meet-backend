@@ -1,0 +1,480 @@
+{
+  "meta": {
+    "title": "For Ruhi",
+    "from": "A friend who has known you a long time",
+    "startNode": "start",
+    "schema": {
+      "node": {
+        "id": "unique key in nodes",
+        "kind": "message | end",
+        "tone": "warm | gentle | reassuring | grateful",
+        "body": "main message shown to Ruhi",
+        "note": "optional smaller line under the body",
+        "ui": {
+          "layout": "letter | card",
+          "optionsAs": "buttons | stacked | input",
+          "placeholder": "only for input",
+          "submitLabel": "only for input"
+        },
+        "options": [
+          {
+            "id": "stable option id",
+            "label": "button or choice text",
+            "sublabel": "optional hint under the label",
+            "variant": "primary | secondary | ghost | soft",
+            "next": "id of the next node"
+          }
+        ]
+      }
+    }
+  },
+  "nodes": {
+    "start": {
+      "id": "start",
+      "kind": "message",
+      "tone": "warm",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Ruhi… itna time ho gaya.\n\nI still remember how easy it used to feel — baatein chalti rehti thin, and the day would just slip away. I am not here to convince you of anything big. I only wanted to ask, gently:\n\nWould you like to meet me this Saturday?",
+      "note": "Jo bhi jawab ho, woh theek hai.",
+      "options": [
+        {
+          "id": "yes",
+          "label": "Haan",
+          "sublabel": "I'd like that",
+          "variant": "primary",
+          "next": "yes-promise"
+        },
+        {
+          "id": "unsure",
+          "label": "Abhi sure nahi hoon",
+          "sublabel": "Need a moment",
+          "variant": "secondary",
+          "next": "unsure"
+        },
+        {
+          "id": "no",
+          "label": "Nahi",
+          "sublabel": "Not this Saturday",
+          "variant": "ghost",
+          "next": "no-ok"
+        }
+      ]
+    },
+    "yes-promise": {
+      "id": "yes-promise",
+      "kind": "message",
+      "tone": "warm",
+      "ui": { "layout": "letter", "optionsAs": "stacked" },
+      "body": "Thank you for saying haan. I promise it will not be loud or heavy — sirf ek din jo tumhare liye halka aur yaadgar ho.\n\nJo tumhe comfortable lage, wahi chalte hain.",
+      "note": "Kuch bhi chhota ho, milna hi kaafi hai.",
+      "options": [
+        {
+          "id": "coffee",
+          "label": "Coffee",
+          "sublabel": "Kisi shaant si jagah",
+          "variant": "primary",
+          "next": "coffee"
+        },
+        {
+          "id": "movie",
+          "label": "Movie",
+          "sublabel": "Andhere mein, kam sawaal",
+          "variant": "secondary",
+          "next": "movie"
+        },
+        {
+          "id": "walk",
+          "label": "Walk / park",
+          "sublabel": "Sirf hawa aur baatein",
+          "variant": "secondary",
+          "next": "walk"
+        },
+        {
+          "id": "other",
+          "label": "Kuch aur",
+          "sublabel": "Jo tum socho",
+          "variant": "soft",
+          "next": "other-activity"
+        }
+      ]
+    },
+    "coffee": {
+      "id": "coffee",
+      "kind": "message",
+      "tone": "warm",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Coffee theek hai. Koi aisi jagah jahaan tum ghabrao nahi — tumhari favourite wali ho sakti hai. Main bus saamne baithna chahta hoon, waise hi jaise pehle.\n\nSaturday ko kab halka lagega?",
+      "options": [
+        {
+          "id": "afternoon",
+          "label": "Dopahar",
+          "variant": "primary",
+          "next": "confirm-meet"
+        },
+        {
+          "id": "evening",
+          "label": "Shaam",
+          "variant": "secondary",
+          "next": "confirm-meet"
+        },
+        {
+          "id": "other-day",
+          "label": "Saturday mushkil hai",
+          "variant": "ghost",
+          "next": "another-day"
+        }
+      ]
+    },
+    "movie": {
+      "id": "movie",
+      "kind": "message",
+      "tone": "warm",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Movie bhi acchi hai — thodi der ke liye duniya shant. Baad mein, agar mann kare, do minute ki chai. Koi plan force nahi karunga.\n\nSaturday chalega?",
+      "options": [
+        {
+          "id": "yes-sat",
+          "label": "Haan, Saturday",
+          "variant": "primary",
+          "next": "confirm-meet"
+        },
+        {
+          "id": "other-day",
+          "label": "Koi aur din better",
+          "variant": "secondary",
+          "next": "another-day"
+        },
+        {
+          "id": "too-public",
+          "label": "Theatre mein log zyada",
+          "variant": "ghost",
+          "next": "fear-seen"
+        }
+      ]
+    },
+    "walk": {
+      "id": "walk",
+      "kind": "message",
+      "tone": "gentle",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Walk the most honest option lagti hai. Koi table nahi, koi script nahi. Bas thodi hawa, thodi der.\n\nKoi park ya gali jahaan tum theek feel karo — wahi.",
+      "options": [
+        {
+          "id": "yes-walk",
+          "label": "Chalo, walk hi sahi",
+          "variant": "primary",
+          "next": "confirm-meet"
+        },
+        {
+          "id": "still-nervous",
+          "label": "Log dekh lenge shayad",
+          "variant": "secondary",
+          "next": "fear-seen"
+        },
+        {
+          "id": "not-ready",
+          "label": "Abhi walk bhi bhari hai",
+          "variant": "ghost",
+          "next": "no-mood"
+        }
+      ]
+    },
+    "other-activity": {
+      "id": "other-activity",
+      "kind": "message",
+      "tone": "gentle",
+      "ui": {
+        "layout": "letter",
+        "optionsAs": "input",
+        "placeholder": "Jo dil kare, likh do…",
+        "submitLabel": "Bhej do"
+      },
+      "body": "Jo tumhe sahi lage, woh bata do. Main uske around sochunga — tumhari marzi pehle.",
+      "note": "Khali bhi chhod sakti ho, sirf milna kaafi hai.",
+      "options": [
+        {
+          "id": "submit",
+          "label": "Bhej do",
+          "variant": "primary",
+          "next": "other-ack"
+        }
+      ]
+    },
+    "other-ack": {
+      "id": "other-ack",
+      "kind": "message",
+      "tone": "grateful",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Suna. Jo bhi tumne socha, usko main halka rakhunga. Saturday ko milna ho, toh theek. Agar din badalna ho, woh bhi theek.",
+      "options": [
+        {
+          "id": "sat",
+          "label": "Saturday theek hai",
+          "variant": "primary",
+          "next": "confirm-meet"
+        },
+        {
+          "id": "other-day",
+          "label": "Koi aur din",
+          "variant": "secondary",
+          "next": "another-day"
+        }
+      ]
+    },
+    "another-day": {
+      "id": "another-day",
+      "kind": "message",
+      "tone": "gentle",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Saturday sacred nahi hai. Jo din tumhare liye halka ho, wahi din sahi din hai.\n\nJab tum ready ho, bol dena. Main wait kar sakta hoon — quietly.",
+      "options": [
+        {
+          "id": "soon",
+          "label": "Is week ke andar",
+          "variant": "primary",
+          "next": "confirm-meet"
+        },
+        {
+          "id": "later",
+          "label": "Thoda later, jab mann kare",
+          "variant": "secondary",
+          "next": "end-later"
+        }
+      ]
+    },
+    "confirm-meet": {
+      "id": "confirm-meet",
+      "kind": "end",
+      "tone": "grateful",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Theek hai. Main isko simple rakhunga — na zyada messages, na pressure.\n\nBas itna: tum aa rahi ho, aur main wahan hoonga. Itna sa milna, itne saalon ke baad, mere liye bahut hai.\n\nKhayaal rakhna, Ruhi.",
+      "note": "Jab confirm karna ho, seedha keh dena. Main sun raha hoon.",
+      "options": [
+        {
+          "id": "restart",
+          "label": "Phir se padho",
+          "variant": "ghost",
+          "next": "start"
+        }
+      ]
+    },
+    "unsure": {
+      "id": "unsure",
+      "kind": "message",
+      "tone": "gentle",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Sure nahi hona bilkul theek hai. Confusion bhi ek tarah ki imandari hai.\n\nMain sirf yeh poochna chahta tha: kya dil mein thodi si jagah hai milne ki, ya abhi bhari hui hai?",
+      "options": [
+        {
+          "id": "little-room",
+          "label": "Thodi jagah hai",
+          "variant": "primary",
+          "next": "yes-promise"
+        },
+        {
+          "id": "heavy",
+          "label": "Abhi dil bhari hai",
+          "variant": "secondary",
+          "next": "no-mood"
+        },
+        {
+          "id": "fear",
+          "label": "Jagah hai, dar zyada hai",
+          "variant": "soft",
+          "next": "fear-seen"
+        }
+      ]
+    },
+    "no-ok": {
+      "id": "no-ok",
+      "kind": "message",
+      "tone": "gentle",
+      "ui": { "layout": "letter", "optionsAs": "stacked" },
+      "body": "It's okay. Main nahi maanoonga ki nahi ka matlab tumhe farq nahi padta.\n\nAgar koi wajah hai jo hum saath mein halki kar sakein — bataogi? Nahi bhi batana chaho, toh bhi main yahin hoon.",
+      "note": "Jo bhi choose karo, uske baad bhi meri izzat rahegi.",
+      "options": [
+        {
+          "id": "no-mood",
+          "label": "Mera man nahi hai",
+          "variant": "secondary",
+          "next": "no-mood"
+        },
+        {
+          "id": "fear",
+          "label": "Mujhe dar hai koi dekh lega toh, koi kya sochega",
+          "variant": "secondary",
+          "next": "fear-seen"
+        },
+        {
+          "id": "dont-want",
+          "label": "Bas mujhe nahi milna, mera man nahi hai",
+          "variant": "ghost",
+          "next": "dont-want"
+        }
+      ]
+    },
+    "no-mood": {
+      "id": "no-mood",
+      "kind": "message",
+      "tone": "gentle",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Man nahi hona bhi jawab hai. Kabhi thakaan hoti hai, kabhi mann shant rehta hai — usko argue nahi karna chahiye.\n\nMain yeh nahi pooch raha ki tumhe force karke le aaoon. Sirf itna: kya yeh aaj ka feel hai, ya milna hi ab theek nahi lagta?",
+      "options": [
+        {
+          "id": "today",
+          "label": "Aaj ka feel hai, kal dekhte hain",
+          "variant": "primary",
+          "next": "end-later"
+        },
+        {
+          "id": "not-meet",
+          "label": "Milna abhi theek nahi",
+          "variant": "secondary",
+          "next": "dont-want"
+        },
+        {
+          "id": "maybe-small",
+          "label": "Chhoti si baat ho sakti hai, milna nahi",
+          "variant": "soft",
+          "next": "small-step"
+        }
+      ]
+    },
+    "fear-seen": {
+      "id": "fear-seen",
+      "kind": "message",
+      "tone": "reassuring",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Woh dar chhota nahi hai. “Koi dekh lega, koi kya sochega” — yeh dil ke andar baith jaata hai.\n\nMain usko hasi mein nahi udaunga. Tumhari izzat meri pehli soch hai. Hum koi aisi jagah soch sakte hain jo quiet ho, familiar ho, jahaan tum perform na karo.\n\nKoi announcement nahi. Sirf do log jo ek doosre ko lambi der se jaante hain.",
+      "note": "Agar phir bhi nahi, toh nahi. Dar ko cross karna tumhari zimmedari nahi.",
+      "options": [
+        {
+          "id": "quiet-yes",
+          "label": "Haan, quiet hi sahi",
+          "variant": "primary",
+          "next": "quiet-place"
+        },
+        {
+          "id": "still-afraid",
+          "label": "Abhi dar zyada hai",
+          "variant": "secondary",
+          "next": "end-space"
+        },
+        {
+          "id": "no-meet",
+          "label": "Phir bhi nahi milna",
+          "variant": "ghost",
+          "next": "dont-want"
+        }
+      ]
+    },
+    "quiet-place": {
+      "id": "quiet-place",
+      "kind": "message",
+      "tone": "reassuring",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Chalo. Koi corner café, ya koi aisi walk jahaan bheed kam ho. Main pehle se plan chhota rakhonga — late nahi, lamba nahi.\n\nTum bolo kab halka lage. Main us hisaab se aaunga.",
+      "options": [
+        {
+          "id": "sat-quiet",
+          "label": "Saturday, thodi der",
+          "variant": "primary",
+          "next": "confirm-meet"
+        },
+        {
+          "id": "other-day-quiet",
+          "label": "Koi aur din, jab kam log hon",
+          "variant": "secondary",
+          "next": "another-day"
+        }
+      ]
+    },
+    "dont-want": {
+      "id": "dont-want",
+      "kind": "message",
+      "tone": "gentle",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Suna. Aur main ruk jaunga.\n\nItna sa kehna tha: tum important ho, milna usse badi cheez nahi. Door rehna bhi, agar tumhe chahiye, ek tarah ka khayal hai.\n\nMain sawaalon ki tarah nahi khada rahoonga.",
+      "options": [
+        {
+          "id": "thanks",
+          "label": "Theek hai, shukriya",
+          "variant": "primary",
+          "next": "end-respect"
+        },
+        {
+          "id": "maybe-later",
+          "label": "Kabhi baad mein, abhi nahi",
+          "variant": "secondary",
+          "next": "end-later"
+        }
+      ]
+    },
+    "small-step": {
+      "id": "small-step",
+      "kind": "message",
+      "tone": "gentle",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Chhoti si baat bhi milna hai, apne hisaab se. Call, message, jo tumhe safe lage.\n\nSaturday ka milna chhodo — sirf itna: kya kabhi, jab mann kare, baat ho sakti hai?",
+      "options": [
+        {
+          "id": "yes-talk",
+          "label": "Haan, baat ho sakti hai",
+          "variant": "primary",
+          "next": "end-later"
+        },
+        {
+          "id": "need-quiet",
+          "label": "Abhi quiet chahiye",
+          "variant": "ghost",
+          "next": "end-space"
+        }
+      ]
+    },
+    "end-later": {
+      "id": "end-later",
+      "kind": "end",
+      "tone": "grateful",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Theek hai. Main Saturday ko wait karke nahi baithunga. Jab tumhara man ho, woh din sahi din hoga.\n\nTab tak — khayal rakhna. Main yahin hoon, quietly.",
+      "options": [
+        {
+          "id": "restart",
+          "label": "Phir se shuru",
+          "variant": "ghost",
+          "next": "start"
+        }
+      ]
+    },
+    "end-space": {
+      "id": "end-space",
+      "kind": "end",
+      "tone": "gentle",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Space le lena. Dar ho ya thakaan, dono ko saans chahiye.\n\nMain door se dua dunga ki tum halka feel karo. Jab ready ho, darwaza band nahi hoga.",
+      "options": [
+        {
+          "id": "restart",
+          "label": "Phir se shuru",
+          "variant": "ghost",
+          "next": "start"
+        }
+      ]
+    },
+    "end-respect": {
+      "id": "end-respect",
+      "kind": "end",
+      "tone": "grateful",
+      "ui": { "layout": "letter", "optionsAs": "buttons" },
+      "body": "Shukriya, jo tumne seedha kaha.\n\nItne saalon ki dosti ka matlab yahi hona chahiye — ki nahi ko bhi izzat mile. Tum theek raho, Ruhi. Baaki sab secondary hai.",
+      "options": [
+        {
+          "id": "restart",
+          "label": "Phir se shuru",
+          "variant": "ghost",
+          "next": "start"
+        }
+      ]
+    }
+  }
+}

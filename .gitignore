@@ -1,0 +1,5 @@
+node_modules
+.env
+data/meet.db
+data/meet.db-shm
+data/meet.db-wal
