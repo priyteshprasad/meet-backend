@@ -21,9 +21,7 @@ const allowedOrigins = (process.env.FRONTEND_ORIGIN || '*')
   .filter(Boolean)
 
 app.use(
-  cors({
-    origin: allowedOrigins.includes('*') ? true : allowedOrigins,
-  }),
+  cors(),
 )
 app.use(express.json())
 
