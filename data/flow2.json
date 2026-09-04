@@ -152,6 +152,13 @@
             "sublabel": "Let me choose the place",
             "variant": "soft",
             "next": "yes-confirm"
+          },
+          {
+            "id": "change-plan",
+            "label": "Mai soch nai paa rahi..",
+            "sublabel": "Kuch aur karten hai",
+            "variant": "ghost",
+            "next": "meeting-options"
           }
         ]
       },
@@ -214,7 +221,7 @@
             "label": "Kuch aur karte hain",
             "sublabel": "I have another idea",
             "variant": "soft",
-            "next": "other-plan"
+            "next": "meeting-options"
           }
         ]
       },
